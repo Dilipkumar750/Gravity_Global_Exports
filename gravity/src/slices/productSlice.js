@@ -2,6 +2,17 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../constant";
 
+export const getAllProduct = createAsyncThunk(
+  "product/getAllProduct",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`${BASE_URL}/product/get_all_product`);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 export const getAllCategory = createAsyncThunk(
   "product/getAllCategory",
   async ({category}, { rejectWithValue }) => {
@@ -15,15 +26,19 @@ export const getAllCategory = createAsyncThunk(
 );
 export const getAllSubCategory = createAsyncThunk(
   "product/getAllSubCategory",
-  async ({category}, { rejectWithValue }) => {
+  async ({subCategory}, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`${BASE_URL}/product/get_category/${category}`);
+      const response = await axios.get(`${BASE_URL}/product/get_subcategory/${subCategory}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
   }
 );
+
+export const getImageUrl = (filename) => {
+  return `${BASE_URL}/product/get_product_image/${filename}`;
+};
 
 const productSlice = createSlice({
   name: "product",
@@ -33,6 +48,7 @@ const productSlice = createSlice({
     error: null,
     getAllCategory: { data: null, isLoading: false, error: null },
     getAllSubCategory: { data: null, isLoading: false, error: null },
+    getAllProduct: { data: null, isLoading: false, error: null },
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -60,6 +76,18 @@ const productSlice = createSlice({
       .addCase(getAllSubCategory.rejected, (state, action) => {
         state.getAllSubCategory.isLoading = false;
         state.getAllSubCategory.error = action.payload;
+      })
+      // get all proudct
+      .addCase(getAllProduct.pending, (state) => {
+        state.getAllProduct.isLoading = true;
+      })
+      .addCase(getAllProduct.fulfilled, (state, action) => {
+        state.getAllProduct.isLoading = false;
+        state.getAllProduct.data = action.payload.data;
+      })
+      .addCase(getAllProduct.rejected, (state, action) => {
+        state.getAllProduct.isLoading = false;
+        state.getAllProduct.error = action.payload;
       })
   },
 });
