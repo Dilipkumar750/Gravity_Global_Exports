@@ -2,19 +2,35 @@ import React from 'react';
 import { SiFacebook } from "react-icons/si";
 import { FaInstagram, FaYoutube, FaWhatsapp } from "react-icons/fa";
 import logo from '../../assets/logo.png';
+import { Link } from 'react-router-dom';
 
 const footerLinks = [
   {
     title: "Product List",
-    links: ["Forklift", "Medical Apparatus", "Engineering Machinery", "Food Machinery", "Electric Motorcycle"],
+    links: [
+      { name: "Forklift", link: "/OurProducts" },
+      { name: "Medical Apparatus", link: "/OurProducts" },
+      { name: "Engineering Machinery", link: "/OurProducts" },
+      { name: "Food Machinery", link: "/OurProducts" },
+      { name: "Electric Motorcycle", link: "/OurProducts" },
+    ],
   },
   {
     title: "Product List",
-    links: ["Farm Machinery", "Packing Machine", "Other Machinery", "Grain Processing", "Animal Husbandry"],
+    links: [
+      { name: "Farm Machinery", link: "/OurProducts" },
+      { name: "Packing Machine", link: "/OurProducts" },
+      { name: "Other Machinery", link: "/OurProducts" },
+      { name: "Grain Processing", link: "/OurProducts" },
+      { name: "Animal Husbandry", link: "/OurProducts" },
+    ],
   },
   {
     title: "Contact Us",
-    links: ["Email", "Phone", "Whatsapp"],
+    links: [
+      { name: "info@gravityglobalexports.com", link: "mailto:info@gravityglobalexports.com" },
+      { name: "+91 60184 64154", link: "tel:+916018464154" },
+      { name: "WhatsApp", icon: <FaWhatsapp />, link: "https://wa.me/6018464154" },    ],
   },
   {
     title: "Information",
@@ -22,8 +38,8 @@ const footerLinks = [
       { name: "Home", link: "/" },
       { name: "Product List", link: "/OurProducts" },
       { name: "About Us", link: "/About" },
-      { name: "Terms & Conditions", link: "#" },
-      { name: "Privacy Policy", link: "#" },
+      { name: "Terms & Conditions", link: "/TermsAndConditions" },
+      { name: "Privacy Policy", link: "/PrivacyPolicy" },
     ],
   },
 ];
@@ -42,11 +58,11 @@ const ColorFoot = () => (
         <address className='font-bold'>
           Gravity Global Exports SDN.BHD<br />
           Co. Reg.No. 202101037574 (1437874-D)<br />
-          No: 7, Jalan PU 7E, <br/>
+          No: 7, Jalan PU 7E, <br />
           Taman Tasik Prima,<br />
           47140 Puchong, Selangor.
         </address>
-        <img src={logo} alt="Ultrafly Logo" className="w-52 my-4" />
+        <img src={logo} alt="Gravity Global Exports Logo" className="w-52 my-4" />
         <ul className="flex space-x-6">
           {socialIcons.map((social, index) => (
             <li key={index}>
@@ -62,19 +78,22 @@ const ColorFoot = () => (
         <div key={index}>
           <h4 className="text-lg font-semibold mb-6 text-black">{section.title}</h4>
           <ul className="space-y-4">
-            {section.links.map((link, i) =>
-              typeof link === 'string' ? (
-                <li key={i}><a href="#" className="text-white hover:text-white text-sm">{link}</a></li>
-              ) : (
-                <li key={i}><a href={link.link} className="text-white hover:text-white text-sm">{link.name}</a></li>
-              )
-            )}
+            {section.links.map((item, i) => (
+              <li key={`${index}-${i}`}>
+                <Link
+                  to={item.link}
+                  className="text-white hover:text-black text-sm"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       ))}
     </div>
 
-    <p className="text-black text-sm mt-10 text-center">© Ultrafly Solutions. All rights reserved.</p>
+    <p className="text-black text-sm mt-10 text-center">© Gravity Global Exports Sdn. Bhd. All rights reserved.</p>
   </footer>
 );
 
