@@ -222,7 +222,7 @@ const CategorySection = () => {
                       <button
                         onClick={() => handleSubCategory(subCategory)}
                         key={subIndex}
-                        className="text-md mb-1 ml-4">
+                        className="text-md mb-1 ml-4 block ">
                         {subCategory}
                       </button>
                     ))}
@@ -249,7 +249,7 @@ const CategorySection = () => {
                     <img
                       src={imageUrl}
                       alt={product.title}
-                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+                      className="object-contain w-full h-full transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
                   <div className="flex flex-col justify-between h-60 p-4 bg-gray-100">
@@ -262,8 +262,8 @@ const CategorySection = () => {
                       </p>
                     </div>
                     <div className="flex justify-center">
-                      <a href="https://wa.me/6018464154">
-                        <button className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">
+                      <a href="https://wa.me/6018464154" target="blank">
+                        <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">
                           Chat Now..
                         </button>
                       </a>
