@@ -43,7 +43,7 @@ const MainProducts = () => {
             <div className="flex justify-center p-4">
               
                 <a href='https://wa.me/6018464154'>
-                  <button className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">
+                  <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
                     Chat Now..
                   </button>
                 </a>
