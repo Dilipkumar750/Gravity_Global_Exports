@@ -45,8 +45,8 @@
 }
 
 .addproduct-thumbnail-img {
-  height: 10%;
-  width: 10%;
+  height: 70%;
+  width: 70%;
   border-radius: 10px;
   object-fit: contain;
 }

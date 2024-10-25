@@ -24,7 +24,7 @@ function App() {
           <Route path="edit/:id" element={<Edit />} />
         </Route>
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
