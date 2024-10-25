@@ -26,7 +26,7 @@ const MainProducts = () => {
             key={index}
             className="bg-white shadow-md rounded-xl w-80 border border-orange-500"
           >
-             <div className="p-4 text-center">
+            <div className="p-4 text-center">
               <h3 className="text-lg font-semibold">{product.title}</h3>
               <p className="text-sm text-gray-600 mt-2 w-full">{product.description}</p>
             </div>
@@ -38,16 +38,16 @@ const MainProducts = () => {
                 data-aos="fade-down"
               />
             </div>
-           
+
             {/* Button Centered */}
             <div className="flex justify-center p-4">
-              
-                <a href='https://wa.me/6018464154'>
-                  <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
-                    Chat Now..
-                  </button>
-                </a>
-              
+
+              <a href='https://wa.me/6018464154'>
+                <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
+                  Chat Now..
+                </button>
+              </a>
+
             </div>
           </div>
         ))}
@@ -71,12 +71,12 @@ const MainProducts = () => {
               Delivering high-performance machinery built with precision engineering. Our manufacturing process ensures durability, efficiency, and innovative design for industrial excellence.
             </p>
 
-            <button type="button" class="bg-gradient-to-r from-orange-400 to-orange-600 hover:bg-orange-500 text-white tracking-wide font-semibold text-sm py-3 px-6 rounded-lg w-max mt-8">
-              Explore Our Machines
-            </button>
+            <Link to={"/Contact"}>
+              <button type="button" class="bg-gradient-to-r from-orange-400 to-orange-600 hover:bg-orange-500 text-white tracking-wide font-semibold text-sm py-3 px-6 rounded-lg w-max mt-8">
+                Explore Our Machines
+              </button>
+            </Link>
           </div>
-
-
           <div class="flex justify-center sm:justify-end w-full sm:w-auto" data-aos="fade-left">
             <img src={experts1} class="h-64 w-64 rounded-full object-cover border-4 border-white" alt="machinery image" />
           </div>

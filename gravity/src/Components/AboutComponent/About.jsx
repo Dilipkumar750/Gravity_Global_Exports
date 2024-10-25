@@ -7,6 +7,8 @@ import imageFour from '../../assets/packingAbout.jpeg';
 import vision from '../../assets/vision.jpg'
 import mission from '../../assets/mission.jpg'
 import selling from '../../assets/selling.jpg'
+import { Link } from 'react-router-dom';
+
 // Example products array with correct image references
 const products = [
   { image: imageOne },
@@ -22,13 +24,19 @@ const About = () => {
         <div className="max-lg:order-1 max-lg:text-center sm:p-12 p-4" data-aos="fade-right">
           <h2 className="text-white lg:text-5xl text-4xl font-bold lg:!leading-[56px] items-center text-center">Our Company</h2>
           <p className="text-white mt-6 text-base leading-relaxed justify-center text-justify">
-          We are particularly good at just that—sourcing products from China, Taiwan, India, and Indonesia. We guide you through the process of getting quotes, evaluating factories, and managing the complexities of manufacturing and shipping. We ensure your goods are delivered when you want them—all for the best price, quality, and lead time.          </p>
-          <button type="button"
-            className="bg-black border-2 mt-12 text-white font-bold text-sm rounded-xl px-6 py-2.5 item-center">Get Started</button>
-        </div>
+            We excel in sourcing products from China, Taiwan, India, and Indonesia. Our team guides you through every step—from obtaining quotes and evaluating factories to managing the complexities of manufacturing and shipping. We ensure your goods arrive on time, at the best price, quality, and lead time.
+          </p>
+          <br />
+          <p className="text-white mt-4 text-base leading-relaxed text-justify">
+            Gravity Global Exports Sdn. Bhd. was incorporated on November 11, 2021, in Malaysia under the name Gravity Global Exports Sdn. Bhd., with the<span className='text-black font-bold'> registration number 202101037574 (1437874-D).</span> The company specializes in online retail, wholesales a variety of goods without a specific focus, and engages in non-specialized retail sales. Gravity Global Exports Sdn. Bhd. is a private limited company that has been operating for three years.
+          </p>
+          <Link to={"/Contact"}>
+            <button type="button" className="bg-black border-2 mt-12 text-white font-bold text-sm rounded-xl px-6 py-2.5 item-center">Get Started</button>
+          </Link>      
+            </div>
 
         <div className="lg:h-[480px] flex items-center" data-aos="fade-left">
-          <img src={about} className="w-full h-full object-cover" alt="About Our Company" />
+          <img src={about} className="w-full h-full object-cover rounded-3xl p-2" alt="About Our Company" />
         </div>
       </div>
 
@@ -55,7 +63,7 @@ const About = () => {
       </div>
 
       <div
-        className='py-8 bg-gray-200'
+        className='py-8 bg-gray-300'
 
       >
         <h1 className='text-3xl font-bold mb-4 text-center text-orange-500'>Project Management</h1>
@@ -78,7 +86,7 @@ const About = () => {
           </div>
           {/* Vision Image */}
           <div className="lg:w-1/2 p-4 flex justify-center">
-            <img src={vision} alt="Vision Image" className="w-52 h-52 object-cover rounded-full" data-aos="fade-left"/>
+            <img src={vision} alt="Vision Image" className="w-52 h-52 object-cover rounded-full" data-aos="fade-left" />
           </div>
         </div>
 
@@ -93,7 +101,7 @@ const About = () => {
           </div>
           {/* Mission Image */}
           <div className="lg:w-1/2 p-4 flex justify-center" data-aos="fade-right">
-            <img src={mission} alt="Mission Image" className="w-52 h-52 object-cover rounded-full" data-aos="fade-right"/>
+            <img src={mission} alt="Mission Image" className="w-52 h-52 object-cover rounded-full" data-aos="fade-right" />
           </div>
         </div>
 
@@ -108,7 +116,7 @@ const About = () => {
           </div>
           {/* Selling Image */}
           <div className="lg:w-1/2 p-4 flex justify-center">
-            <img src={selling} alt="Selling Image" className="w-52 h-52 object-cover rounded-full" data-aos="fade-left"/>
+            <img src={selling} alt="Selling Image" className="w-52 h-52 object-cover rounded-full" data-aos="fade-left" />
           </div>
         </div>
       </div>

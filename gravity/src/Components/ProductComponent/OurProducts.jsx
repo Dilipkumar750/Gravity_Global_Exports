@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import productImage from "../../assets/product.jpg";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllProduct, getImageUrl } from "../../slices/productSlice";
+import { Link } from "react-router-dom";
 
 const categories = {
   Forklift: [],
@@ -168,11 +169,13 @@ const CategorySection = () => {
           </div>
 
           <div className="md:w-1/2 flex">
-            <button
-              type="button"
-              className="bg-orange-500 text-gray-800 py-3 px-6 font-semibold rounded">
-              Contact Us Today
-            </button>
+            <Link to={"/Contact"}>
+              <button
+                type="button"
+                className="bg-orange-500 text-gray-800 py-3 px-6 font-semibold rounded">
+                Contact Us Today
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="grid md:grid-cols-2 items-center md:gap-10 gap-6">
         <div className="max-md:order-1 max-md:text-center">
           <p className="mt-4 text-sm font-bold text-orange-500">
-            <span className="rotate-90 inline-block mr-2 mb-2">|</span> Powering Progress with Precision-Engineered Machinery
+            <span className="rotate-90 inline-block mr-2 mb-2">|</span> Gravity Global Exports Sdn. Bhd.
           </p>
           <h2 className="text-gray-800 md:text-5xl text-3xl font-extrabold mb-4 md:!leading-[55px]">
             Powering Progress with Precision-Engineered Machinery

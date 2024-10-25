@@ -1,4 +1,5 @@
-import './App.css'
+// src/App.js
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { Route, Routes } from 'react-router-dom';
 import Contact from './Components/ContactComponent/Contact';
@@ -15,6 +16,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import Turnover from './Components/HomeComponent/Turnover';
+import PrivacyPolicy from './Pages/Footer/PrivacyPolicy';
+import TermsAndConditions from './Pages/Footer/TermsAndConditions';
+import ScrollToTop from '../src/Components/ScrollToTop' // Import the ScrollToTop component
 
 function App() {
   useEffect(() => {
@@ -27,21 +31,24 @@ function App() {
 
   return (
     <>
-    <TopHeader/>
-    <Navbar/>
-    <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/Contact' element={<Contact/>}/>
-      <Route path='/Hero' element={<Hero/>}/>
-      <Route path='/Innovation' element={<Innovation/>}/>
-      <Route path='/MainProducts' element={<MainProducts/>}/>
-      <Route path='/About' element={<About/>}/>
-      <Route path='/OurProducts' element={<OurProducts/>}/>
-      <Route path='/Turnover' element={<Turnover/>}/>
-    </Routes>
-    <Footer/>
+      <TopHeader />
+      <Navbar />
+      <ScrollToTop /> {/* Include ScrollToTop here */}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/Contact' element={<Contact />} />
+        <Route path='/Hero' element={<Hero />} />
+        <Route path='/Innovation' element={<Innovation />} />
+        <Route path='/MainProducts' element={<MainProducts />} />
+        <Route path='/About' element={<About />} />
+        <Route path='/OurProducts' element={<OurProducts />} />
+        <Route path='/Turnover' element={<Turnover />} />
+        <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
+        <Route path='/TermsAndConditions' element={<TermsAndConditions />} />
+      </Routes>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -35,13 +35,12 @@ const Innovation = () => {
               </p>
 
               <div data-aos="zoom-in">
-                <a
-                  href="#"
+              <Link to="/Contact"
                   className="mt-8 inline-block rounded border border-orange-600 bg-orange-500 px-12 py-3 text-sm font-medium text-white hover:bg-orange-600 hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
                   
                 >
                   Get in Touch
-                </a>
+                </Link>
               </div>
             </div>
           </div>
