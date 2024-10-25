@@ -11,7 +11,7 @@ mongoose.connection.once("open", () => {
 exports.addProduct = async (req, res) => {
   try {
     const { category, subCategory, title, description } = req.body;
-    if (!category || !subCategory || !title || !description || !req.file) {
+    if (!category || !title || !description || !req.file) {
       return res.status(404).json({
         success: false,
         message: "All inputs are required.",

@@ -136,10 +136,8 @@ const Edit = () => {
   };
 
   useEffect(() => {
-    dispatch(getOneProduct({id}))
-    if (data) {
-        setProductDetails(data)
-    }
+    dispatch(getOneProduct({id})).then(()=>setProductDetails(data))
+
   }, [dispatch,id])
   
   return (
