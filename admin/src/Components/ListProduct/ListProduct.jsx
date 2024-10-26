@@ -71,11 +71,11 @@ const ListProduct = () => {
                   >
                     Delete
                   </button>
-                  {/* <Link to={`/edit/${e._id}`}>
+                  <Link to={`/edit/${e._id}`}>
                     <button type="button" className="btn btn-primary btn-sm">
                       Edit
                     </button>
-                  </Link> */}
+                  </Link>
                 </td>
               </tr>
             );

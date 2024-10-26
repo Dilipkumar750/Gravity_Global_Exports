@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from "react";
 import "../AddProduct/AddProduct.css";
-import upload_area from "../Assets/upload_area.svg";
 import { useSelector, useDispatch } from "react-redux";
-import { addProduct, getOneProduct, updateProduct } from "../../slices/productSlice";
-import { useParams } from "react-router-dom";
-
+import { getOneProduct, updateProduct } from "../../slices/productSlice";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Edit = () => {
-    const {id} = useParams()
+  const { id } = useParams();
   const dispatch = useDispatch();
-  const { isLoading,data:updateData,error:updateError } = useSelector((state) => state.product.updateProduct);
-  const { data,error } = useSelector((state) => state.product.getOneProduct);
+  const navigate = useNavigate();
 
-  const [image, setImage] = useState(false);
-  const [loading, setLoading] = useState(false); // Loading state for button
+  const { isLoading: isUpdating } = useSelector((state) => state.product.updateProduct);
+  const { data: product, error: fetchError, loading } = useSelector((state) => state.product.getOneProduct);
+
+  const [image, setImage] = useState(null);
   const [productDetails, setProductDetails] = useState({
-    _id:"",
+    _id: "",
     title: "",
     description: "",
-    image: "",
+    image: "", // Ensure this reflects the existing image
     category: "",
     subCategory: "",
   });
+
   const categories = {
     "All Category": [],
     Forklift: [],
@@ -77,10 +77,10 @@ const Edit = () => {
       "Other Farm Machines",
     ],
     "Animal Husbandry Machinery": [],
-    Tools: [],
+    "Tools": [],
     "Agricultural Product Processing Machinery": [],
     "Garden Tool": [],
-    Cultivator: [],
+    "Cultivator": [],
     "Surface Drill": ["Excavator"],
     "Rubber V Belt and Timing Belts": [
       "Agricultural machinery Belt",
@@ -120,12 +120,6 @@ const Edit = () => {
     Ungrouped: [],
   };
 
-  // Function to add product
-  const AddProduct = async () => {
-    dispatch(updateProduct({ productDetails, image }));
-  };
-
-  // Handle input change for text fields
   const changeHandler = (e) => {
     setProductDetails({ ...productDetails, [e.target.name]: e.target.value });
   };
@@ -136,10 +130,31 @@ const Edit = () => {
   };
 
   useEffect(() => {
-    dispatch(getOneProduct({id})).then(()=>setProductDetails(data))
+    dispatch(getOneProduct({ id }));
+  }, [dispatch, id]);
 
-  }, [dispatch,id])
-  
+  useEffect(() => {
+    if (product) {
+      setProductDetails(product);
+      // Clear image if you want to show the existing one when editing
+      setImage(null); // This keeps the existing image shown until a new one is selected
+    }
+  }, [product]);
+
+  const updateProductHandler = async () => {
+    try {
+      await dispatch(updateProduct({ productDetails, image }));
+      navigate("/listproduct");
+    } catch (error) {
+      console.error("Failed to update product:", error);
+    }
+  };
+
+  if (loading) return <p>Loading product details...</p>;
+  if (fetchError) return <p>Error loading product data: {fetchError}</p>;
+
+  const existingImageUrl = productDetails?.image;
+
   return (
     <div className="addproduct">
       <div className="addproduct-itemfield">
@@ -155,19 +170,17 @@ const Edit = () => {
 
       <div className="addproduct-itemfield">
         <p>Description</p>
-        <input
+        <textarea
           name="description"
           value={productDetails.description}
           onChange={changeHandler}
           placeholder="Type here"
-          style={{ height: "200px" }}
+          className="description-textarea" // Add className for specific styling
+          style={{ height: "200px", width: "100%" }}
         />
       </div>
 
-      <div
-        className="addproduct-itemfield"
-        style={{ display: "flex", justifyContent: "space-between" }}>
-        {/* Category dropdown */}
+      <div className="addproduct-itemfield" style={{ display: "flex", justifyContent: "space-between" }}>
         <div style={{ marginRight: "20px", flex: "1" }}>
           <p style={{ marginBottom: "5px" }}>Product Category</p>
           <select
@@ -185,7 +198,6 @@ const Edit = () => {
           </select>
         </div>
 
-        {/* Subcategory dropdown */}
         <div style={{ flex: "1" }}>
           <p style={{ marginBottom: "5px" }}>Product SubCategory</p>
           <select
@@ -204,30 +216,33 @@ const Edit = () => {
           </select>
         </div>
       </div>
+
       <div className="addproduct-itemfield">
         <p>Upload Image</p>
+
         <label htmlFor="file-input">
           <img
             className="addproduct-thumbnail-img"
-            src={!image ? upload_area : URL.createObjectURL(image)}
-            alt="Upload area"
+            src={!image ? existingImageUrl: URL.createObjectURL(image)}
+            alt=""
+            style={{ width: "100px", height: "100px", objectFit: "cover", cursor: "pointer" }}
           />
         </label>
+
         <input
           onChange={imageHandler}
           type="file"
           name="image"
           id="file-input"
-          hidden
+          
         />
       </div>
 
       <button
         className="addproduct-btn"
-        onClick={AddProduct}
-        disabled={isLoading}
-      >
-        {isLoading ? "Adding..." : "ADD"}
+        onClick={updateProductHandler}
+        disabled={isUpdating}>
+        {isUpdating ? "Updating..." : "Update"}
       </button>
     </div>
   );

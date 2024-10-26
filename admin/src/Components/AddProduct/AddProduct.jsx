@@ -8,15 +8,63 @@ const AddProduct = () => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.product.addProduct);
 
-  const [image, setImage] = useState(false);
-  const [loading, setLoading] = useState(false); // Loading state for button
+  const [image, setImage] = useState(null); // Changed from false to null
   const [productDetails, setProductDetails] = useState({
     title: "",
     description: "",
-    image: "",
     category: "",
     subCategory: "",
   });
+
+  const imageHandler = (event) => {
+    const file = event.target.files[0];
+
+    // Check if a file was selected
+    if (!file) {
+      alert("No file selected.");
+      return;
+    }
+
+    // Check if file type is PNG, JPG, JPEG, or SVG
+    const allowedTypes = ["image/png", "image/jpg", "image/jpeg", "image/svg+xml"];
+    if (!allowedTypes.includes(file.type)) {
+      alert("Only PNG, JPG, JPEG, and SVG files are allowed.");
+      return;
+    }
+
+    const img = new Image();
+    img.src = URL.createObjectURL(file);
+
+    img.onload = () => {
+      setImage(file);
+    };
+  };
+
+  const addProductHandler = async () => {
+    dispatch(addProduct({ productDetails, image }));
+  };
+
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+
+    const alphanumericRegex = /^[a-zA-Z0-9\s]*$/;
+    const descriptionRegex = /^[a-zA-Z0-9\s.,?]*$/;
+
+    if (name === "description") {
+      if (descriptionRegex.test(value)) {
+        setProductDetails({ ...productDetails, [name]: value });
+      } else {
+        alert("Only letters, numbers, and basic punctuation are allowed in the description.");
+      }
+    } else {
+      if (alphanumericRegex.test(value)) {
+        setProductDetails({ ...productDetails, [name]: value });
+      } else {
+        alert("Only letters and numbers are allowed.");
+      }
+    }
+  };
+
   const categories = {
     "All Category": [],
     Forklift: [],
@@ -72,10 +120,10 @@ const AddProduct = () => {
       "Other Farm Machines",
     ],
     "Animal Husbandry Machinery": [],
-    Tools: [],
+    "Tools": [],
     "Agricultural Product Processing Machinery": [],
     "Garden Tool": [],
-    Cultivator: [],
+    "Cultivator": [],
     "Surface Drill": ["Excavator"],
     "Rubber V Belt and Timing Belts": [
       "Agricultural machinery Belt",
@@ -112,59 +160,52 @@ const AddProduct = () => {
       "Furrow Plough",
       "Harvester",
     ],
-    Ungrouped: [],
-  };
-
-  // Function to add product
-  const AddProduct = async () => {
-    dispatch(addProduct({ productDetails, image }));
-  };
-
-  // Handle input change for text fields
-  const changeHandler = (e) => {
-    setProductDetails({ ...productDetails, [e.target.name]: e.target.value });
-  };
-
-  // Handle image change
-  const imageHandler = (e) => {
-    setImage(e.target.files[0]);
+    "Ungrouped": [],
   };
   return (
     <div className="addproduct">
       <div className="addproduct-itemfield">
-        <p>Product Title</p>
+        <p>
+          Product Title <span style={{ color: "red" }}>*</span>
+        </p>
         <input
           type="text"
           name="title"
           value={productDetails.title}
           onChange={changeHandler}
           placeholder="Type here"
+          required
         />
       </div>
 
+
       <div className="addproduct-itemfield">
-        <p>Description</p>
-        <input
+        <p>Description <span style={{ color: "red" }}>*</span>
+        </p>
+        <textarea // Changed input to textarea for better description entry
           name="description"
           value={productDetails.description}
           onChange={changeHandler}
           placeholder="Type here"
-          style={{ height: "200px" }}
+          style={{ height: "200px", width: "100%" }}
         />
       </div>
 
       <div
         className="addproduct-itemfield"
-        style={{ display: "flex", justifyContent: "space-between" }}>
+        style={{ display: "flex", justifyContent: "space-between" }}
+      >
         {/* Category dropdown */}
         <div style={{ marginRight: "20px", flex: "1" }}>
-          <p style={{ marginBottom: "5px" }}>Product Category</p>
+          <p style={{ marginBottom: "5px" }}>Product Category <span style={{ color: "red" }}>*</span> 
+          </p>
           <select
             value={productDetails.category}
             name="category"
             className="add-product-selector"
             onChange={changeHandler}
-            style={{ width: "100%", minWidth: "150px" }}>
+            style={{ width: "100%", minWidth: "150px" }}
+          >
             <option value="">Select Category</option>
             {Object.keys(categories).map((cat) => (
               <option key={cat} value={cat}>
@@ -183,7 +224,8 @@ const AddProduct = () => {
             className="add-product-selector"
             onChange={changeHandler}
             style={{ width: "100%", minWidth: "150px" }}
-            disabled={!productDetails.category}>
+            disabled={!productDetails.category}
+          >
             <option value="">Select SubCategory</option>
             {categories[productDetails.category]?.map((subcat) => (
               <option key={subcat} value={subcat}>
@@ -194,7 +236,8 @@ const AddProduct = () => {
         </div>
       </div>
       <div className="addproduct-itemfield">
-        <p>Upload Image</p>
+        <p>Upload Image <span style={{ color: "red" }}>*</span>
+        </p>
         <label htmlFor="file-input">
           <img
             className="addproduct-thumbnail-img"
@@ -213,7 +256,7 @@ const AddProduct = () => {
 
       <button
         className="addproduct-btn"
-        onClick={AddProduct}
+        onClick={addProductHandler} // Corrected to addProductHandler
         disabled={isLoading} // Disable button during loading
       >
         {isLoading ? "Adding..." : "ADD"}
