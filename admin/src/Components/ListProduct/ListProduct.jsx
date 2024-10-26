@@ -26,12 +26,12 @@ const ListProduct = () => {
     dispatch(getAllProduct());
   }, [dispatch, deleteData]);
 
-  // Calculate the current items to display
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data ? data.slice(indexOfFirstItem, indexOfLastItem) : [];
 
-  // Calculate total pages
+
   const totalPages = data ? Math.ceil(data.length / itemsPerPage) : 0;
 
   return (
@@ -83,7 +83,7 @@ const ListProduct = () => {
         </tbody>
       </table>
 
-      {/* Pagination Controls */}
+    
       <nav aria-label="Page navigation">
         <ul className="pagination justify-content-center">
           <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>

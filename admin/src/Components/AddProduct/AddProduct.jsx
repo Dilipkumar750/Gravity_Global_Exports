@@ -8,7 +8,7 @@ const AddProduct = () => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.product.addProduct);
 
-  const [image, setImage] = useState(null); // Changed from false to null
+  const [image, setImage] = useState(null); 
   const [productDetails, setProductDetails] = useState({
     title: "",
     description: "",
@@ -19,13 +19,12 @@ const AddProduct = () => {
   const imageHandler = (event) => {
     const file = event.target.files[0];
 
-    // Check if a file was selected
     if (!file) {
       alert("No file selected.");
       return;
     }
 
-    // Check if file type is PNG, JPG, JPEG, or SVG
+  
     const allowedTypes = ["image/png", "image/jpg", "image/jpeg", "image/svg+xml"];
     if (!allowedTypes.includes(file.type)) {
       alert("Only PNG, JPG, JPEG, and SVG files are allowed.");
@@ -182,7 +181,7 @@ const AddProduct = () => {
       <div className="addproduct-itemfield">
         <p>Description <span style={{ color: "red" }}>*</span>
         </p>
-        <textarea // Changed input to textarea for better description entry
+        <textarea 
           name="description"
           value={productDetails.description}
           onChange={changeHandler}
@@ -195,7 +194,6 @@ const AddProduct = () => {
         className="addproduct-itemfield"
         style={{ display: "flex", justifyContent: "space-between" }}
       >
-        {/* Category dropdown */}
         <div style={{ marginRight: "20px", flex: "1" }}>
           <p style={{ marginBottom: "5px" }}>Product Category <span style={{ color: "red" }}>*</span> 
           </p>
@@ -215,7 +213,7 @@ const AddProduct = () => {
           </select>
         </div>
 
-        {/* Subcategory dropdown */}
+      
         <div style={{ flex: "1" }}>
           <p style={{ marginBottom: "5px" }}>Product SubCategory</p>
           <select
@@ -256,8 +254,8 @@ const AddProduct = () => {
 
       <button
         className="addproduct-btn"
-        onClick={addProductHandler} // Corrected to addProductHandler
-        disabled={isLoading} // Disable button during loading
+        onClick={addProductHandler} 
+        disabled={isLoading}
       >
         {isLoading ? "Adding..." : "ADD"}
       </button>

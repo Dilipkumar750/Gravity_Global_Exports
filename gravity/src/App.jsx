@@ -18,14 +18,14 @@ import { useEffect } from 'react';
 import Turnover from './Components/HomeComponent/Turnover';
 import PrivacyPolicy from './Pages/Footer/PrivacyPolicy';
 import TermsAndConditions from './Pages/Footer/TermsAndConditions';
-import ScrollToTop from '../src/Components/ScrollToTop' // Import the ScrollToTop component
+import ScrollToTop from '../src/Components/ScrollToTop'
 
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration in milliseconds
-      easing: 'ease-in-out', // Animation easing
-      once: true, // Whether animation should happen only once
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
     });
   }, []);
 
@@ -33,7 +33,7 @@ function App() {
     <>
       <TopHeader />
       <Navbar />
-      <ScrollToTop /> {/* Include ScrollToTop here */}
+      <ScrollToTop /> 
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Contact' element={<Contact />} />
