@@ -29,13 +29,12 @@ const Turnover = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Text overlay */}
       <div className="text-white text-center">
         <h1 className="text-4xl font-bold mb-20">
           Global Threat Protection Delivered Daily
         </h1>
 
-        {/* Box containers */}
+        
         <div className="grid grid-cols-2 gap-10 md:grid-cols-4 md:gap-16">
           <div className="flex flex-col items-center justify-center w-32 h-32 rounded-lg text-3xl">
             {countries}+<br />Countries

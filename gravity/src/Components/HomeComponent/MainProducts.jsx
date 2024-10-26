@@ -16,10 +16,10 @@ const MainProducts = () => {
 
   return (
     <div className="flex flex-col items-center min-h-screen mt-5">
-      {/* Major Products Header */}
+   
       <h2 className="text-4xl font-bold mb-8 text-orange-500">Major Products</h2>
 
-      {/* Product Grid */}
+     
       <div className="flex flex-wrap justify-center gap-6" data-aos="fade-down">
         {products.map((product, index) => (
           <div
@@ -39,7 +39,6 @@ const MainProducts = () => {
               />
             </div>
 
-            {/* Button Centered */}
             <div className="flex justify-center p-4">
 
               <a href='https://wa.me/6018464154'>

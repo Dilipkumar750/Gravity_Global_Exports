@@ -114,7 +114,7 @@ const CategorySection = () => {
 
   useEffect(() => {
     if (allProduct) {
-      filterProducts(); // filter when allProduct changes or when selected category changes
+      filterProducts();
     }
   }, [allProduct, selectedCategory, selectedSubCategory]);
 
@@ -139,7 +139,7 @@ const CategorySection = () => {
   const toggleCategory = (category) => {
     setOpenCategory(openCategory === category ? null : category);
     setSelectedCategory(category);
-    setSelectedSubCategory(null); // Reset subcategory when changing category
+    setSelectedSubCategory(null); 
   };
 
   const handleSubCategory = (subCategory) => {
@@ -192,7 +192,7 @@ const CategorySection = () => {
                 onClick={() => {
                   setSelectedCategory(null);
                   setSelectedSubCategory(null);
-                  setProducts(allProduct); // Show all products when "All Category" is clicked
+                  setProducts(allProduct); 
                 }}>
                 All Category
               </button>

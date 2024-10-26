@@ -17,7 +17,7 @@ const Edit = () => {
     _id: "",
     title: "",
     description: "",
-    image: "", // Ensure this reflects the existing image
+    image: "", 
     category: "",
     subCategory: "",
   });
@@ -124,7 +124,7 @@ const Edit = () => {
     setProductDetails({ ...productDetails, [e.target.name]: e.target.value });
   };
 
-  // Handle image change
+
   const imageHandler = (e) => {
     setImage(e.target.files[0]);
   };
@@ -136,8 +136,8 @@ const Edit = () => {
   useEffect(() => {
     if (product) {
       setProductDetails(product);
-      // Clear image if you want to show the existing one when editing
-      setImage(null); // This keeps the existing image shown until a new one is selected
+     
+      setImage(null);
     }
   }, [product]);
 
@@ -175,7 +175,7 @@ const Edit = () => {
           value={productDetails.description}
           onChange={changeHandler}
           placeholder="Type here"
-          className="description-textarea" // Add className for specific styling
+          className="description-textarea"
           style={{ height: "200px", width: "100%" }}
         />
       </div>

@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Handle login logic here
+    
     const response = await fetch("http://localhost:4000/login", {
       method: "POST",
       headers: {
@@ -25,7 +25,7 @@ const Login = () => {
     });
 
     const data = await response.json();
-    console.log(data); // Handle success or error feedback
+    console.log(data); 
   };
 
   return (

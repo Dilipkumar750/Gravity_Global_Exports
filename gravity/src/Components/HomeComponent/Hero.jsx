@@ -21,8 +21,8 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3000); // Change image every 3 seconds
-    return () => clearInterval(interval); // Clear interval on component unmount
+    const interval = setInterval(nextSlide, 3000);
+    return () => clearInterval(interval); 
   }, []);
 
   return (
@@ -61,12 +61,12 @@ const Hero = () => {
                 className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
                 style={{
                   backgroundImage: `url(${image})`,
-                  backgroundSize: 'cover', // Adjusted background size to 'cover'
+                  backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  padding: '5px', // Set padding for the images
-                  height: 'calc(100% - 1px)', // Adjusting height to account for padding (5px top and bottom)
-                  width: 'calc(100% - 20px)', // Adjusting width to account for padding (5px left and right)
-                  boxSizing: 'border-box', // Ensuring padding is included in the element's total width and height
+                  padding: '5px', 
+                  height: 'calc(100% - 1px)', 
+                  width: 'calc(100% - 20px)',
+                  boxSizing: 'border-box',
                 }}
               ></div>
             ))}
@@ -81,13 +81,13 @@ const Hero = () => {
               ))}
             </div>
             <button className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={() => setCurrentIndex((currentIndex - 1 + swiperImages.length) % swiperImages.length)}>
-              {/* Previous Button Icon */}
+             
               <svg className="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M15.75 18l-6-6 6-6" />
               </svg>
             </button>
             <button className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={() => setCurrentIndex((currentIndex + 1) % swiperImages.length)}>
-              {/* Next Button Icon */}
+              
               <svg className="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M8.25 6l6 6-6 6" />
               </svg>

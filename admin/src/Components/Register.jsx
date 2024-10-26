@@ -21,7 +21,7 @@ const Signup = () => {
       return;
     }
 
-    // Handle signup logic here
+   
     const response = await fetch("http://localhost:4000/signup", {
       method: "POST",
       headers: {
@@ -36,7 +36,7 @@ const Signup = () => {
     });
 
     const data = await response.json();
-    console.log(data); // Handle success or error feedback
+    console.log(data); 
   };
 
   return (

@@ -20,16 +20,16 @@ const Contact = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
-    // Handle form submission logic here (e.g., API call)
+   
     setTimeout(() => {
       setLoading(false);
-      alert('Message sent!'); // For demonstration purposes
+      alert('Message sent!'); 
     }, 2000);
   };
 
   return (
     <div className="font-[sans-serif]">
-      {/* Banner Image */}
+     
       <div className="bg-gradient-to-r from-blue-700 to-blue-300 w-full h-80">
         <img src={packing} alt="Banner Image" className="w-full h-full object-cover" />
       </div>
@@ -38,7 +38,7 @@ const Contact = () => {
         <div className="mx-auto max-w-6xl shadow-lg p-8 relative bg-white rounded-md">
           <h2 className="text-4xl text-orange-500 font-bold text-center">Product Inquiry</h2>
 
-          {/* Contact Details Section */}
+       
           <div className="mt-6 text-gray-800 flex flex-col md:flex-row">
             <div className="md:flex-1" data-aos="fade-right">
               <p>
