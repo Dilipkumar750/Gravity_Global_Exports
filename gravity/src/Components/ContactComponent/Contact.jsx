@@ -53,7 +53,7 @@ const Contact = () => {
               Taman Tasik Prima,<br />
               47140 Puchong, Selangor.
               <p className="mt-4 font-semibold text-orange-500">Phone:</p>
-              <p>+6018464154</p>
+              <p>60184641754</p>
               <p className="mt-4 font-semibold text-orange-500">Email:</p>
               <p>info@gravityglobalexports.com</p>
             </div>

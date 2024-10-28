@@ -265,7 +265,7 @@ const CategorySection = () => {
                       </p>
                     </div>
                     <div className="flex justify-center">
-                      <a href="https://wa.me/6018464154" target="blank">
+                      <a href="https://wa.me/60184641754" target="blank">
                         <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">
                           Chat Now..
                         </button>
