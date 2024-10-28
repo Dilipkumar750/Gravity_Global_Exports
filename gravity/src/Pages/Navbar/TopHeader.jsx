@@ -14,8 +14,8 @@ function TopHeader() {
 
 
       <div className="d-flex align-items-center mb-2 mb-md-0 ms-md-3">
-        <a href="tel:+916018464154" className="text-white">
-          +91 60184 64154
+        <a href="tel:+6018464154" className="text-white">
+          +6018464154
         </a>
       </div>
 

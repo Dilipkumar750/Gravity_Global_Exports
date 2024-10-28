@@ -29,8 +29,8 @@ const footerLinks = [
     title: "Contact Us",
     links: [
       { name: "info@gravityglobalexports.com", link: "mailto:info@gravityglobalexports.com" },
-      { name: "+91 60184 64154", link: "tel:+916018464154" },
-      { name: "WhatsApp", icon: <FaWhatsapp />, link: "https://wa.me/6018464154" },    ],
+      { name: "+6018464154", link: "tel:+6018464154" },
+      { name: "WhatsApp", icon: <FaWhatsapp />, link: "https://wa.me/+6018464154" },    ],
   },
   {
     title: "Information",

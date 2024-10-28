@@ -104,7 +104,7 @@ const TermsAndConditions = () => {
           No: 7, Jalan PU 7E,<br />
           Taman Tasik Prima,<br />
           47140 Puchong, Selangor.<br />
-          <strong>Phone:</strong> +91 60184 64154<br />
+          <strong>Phone:</strong> +6018464154<br />
           <strong>Email:</strong> info@gravityglobalexports.com
         </p>
       </div>
