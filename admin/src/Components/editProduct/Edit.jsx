@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../AddProduct/AddProduct.css";
 import { useSelector, useDispatch } from "react-redux";
-import { getOneProduct, updateProduct } from "../../slices/productSlice";
+import { getImageUrl, getOneProduct, updateProduct } from "../../slices/productSlice";
 import { useParams, useNavigate } from "react-router-dom";
+
 
 const Edit = () => {
   const { id } = useParams();
@@ -153,7 +154,7 @@ const Edit = () => {
   if (loading) return <p>Loading product details...</p>;
   if (fetchError) return <p>Error loading product data: {fetchError}</p>;
 
-  const existingImageUrl = productDetails?.image;
+  const existingImageUrl = getImageUrl(product?.image)
 
   return (
     <div className="addproduct">
