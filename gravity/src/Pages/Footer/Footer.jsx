@@ -58,7 +58,7 @@ const ColorFoot = () => (
         <address className='font-bold'>
           Gravity Global Exports SDN.BHD<br />
           Co. Reg.No. 202101037574 (1437874-D)<br />
-          No: 7, Jalan PU 7E, <br />
+          No: 87, Jalan PU 83E, <br />
           Taman Tasik Prima,<br />
           47140 Puchong, Selangor.
         </address>
