@@ -39,7 +39,7 @@ const Hero = () => {
       <div className="grid md:grid-cols-2 items-center md:gap-10 gap-6">
         <div className="max-md:order-1 max-md:text-center">
           <p className="mt-4 text-5xl font-bold text-orange-500">
-            <span className="rotate-90 inline-block mr-2 mb-2">|</span> Universal Educational Visuals
+            <span className="rotate-90 inline-block mr-2 mb-2">|</span> Gravity Global Export
           </p>
           <h2 className="text-gray-800 md:text-5xl text-3xl font-extrabold mb-4 md:!leading-[55px]">
             Powering Progress with Precision-Engineered Machinery
@@ -65,7 +65,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:h-[400px] md:w-[450px] p-2" data-aos="fade-left">
+        <div className="flex flex-col md:h-[600px] md:w-full p-2" data-aos="fade-left">
           <div className="relative w-full h-[200px] md:h-full overflow-hidden rounded-lg p-1">
             {swiperImages.map((image, index) => (
               <div
@@ -75,7 +75,8 @@ const Hero = () => {
                 }`}
                 style={{
                   backgroundImage: `url(${image})`,
-                  backgroundSize: 'cover',
+                  backgroundSize: 'contain',
+                  backgroundRepeat:'no-repeat',
                   backgroundPosition: 'center',
                   height: '100%',
                   width: '100%',
