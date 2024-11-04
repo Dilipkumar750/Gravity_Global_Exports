@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+// Image imports
 import forklift from '../../assets/forklift.jpeg';
 import logo from '../../assets/logo.png';
 import hero from '../../assets/hero.png';
@@ -15,14 +19,19 @@ const swiperImages = [hero, swiper1, swiper2, swiper3, swiper4, swiper5, swiper6
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Function to change the index
+  // Initialize AOS for animations
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  // Function to change the index for carousel
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % swiperImages.length);
   };
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 3000);
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -30,17 +39,21 @@ const Hero = () => {
       <div className="grid md:grid-cols-2 items-center md:gap-10 gap-6">
         <div className="max-md:order-1 max-md:text-center">
           <p className="mt-4 text-5xl font-bold text-orange-500">
-            <span className="rotate-90 inline-block mr-2 mb-2">|</span> Gravity Global Exports Sdn. Bhd.
+            <span className="rotate-90 inline-block mr-2 mb-2">|</span> Universal Educational Visuals
           </p>
           <h2 className="text-gray-800 md:text-5xl text-3xl font-extrabold mb-4 md:!leading-[55px]">
             Powering Progress with Precision-Engineered Machinery
           </h2>
           <p className="mt-5 text-base text-gray-500 leading-relaxed">
-            Embark on a gastronomic journey with our curated dishes, delivered promptly to your doorstep. Elevate your dining experience today.
+            Embark on a learning journey with our expertly designed educational tools.
           </p>
 
           <div className="mt-10 flex px-4 py-4 rounded-lg bg-gray-100 overflow-hidden">
-            <input type="email" placeholder="Search Something..." className="w-full outline-none bg-transparent text-sm" />
+            <input
+              type="text"
+              placeholder="Search Something..."
+              className="w-full outline-none bg-transparent text-sm"
+            />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 192.904 192.904"
@@ -52,56 +65,68 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="hidden md:flex md:h-[400px] md:w-[450px] p-2  flex-col" data-aos="fade-left">
-          {/* Custom carousel with automatic scroll */}
-          <div className="relative w-full h-full overflow-hidden rounded-lg p-1"> {/* Added padding here */}
+        <div className="flex flex-col md:h-[400px] md:w-[450px] p-2" data-aos="fade-left">
+          <div className="relative w-full h-[200px] md:h-full overflow-hidden rounded-lg p-1">
             {swiperImages.map((image, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`}
+                className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                  index === currentIndex ? 'opacity-100' : 'opacity-0'
+                }`}
                 style={{
                   backgroundImage: `url(${image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  padding: '5px', 
-                  height: 'calc(100% - 1px)', 
-                  width: 'calc(100% - 20px)',
-                  boxSizing: 'border-box',
+                  height: '100%',
+                  width: '100%',
                 }}
               ></div>
             ))}
-            <div className="absolute z-30 flex bottom-5 left-1/2 transform -translate-x-1/2 space-x-3">
+            <div className="absolute z-30 flex bottom-3 md:bottom-5 left-1/2 transform -translate-x-1/2 space-x-2 md:space-x-3">
               {swiperImages.map((_, idx) => (
                 <button
                   key={idx}
                   type="button"
-                  className={`w-3 h-3 rounded-full ${idx === currentIndex ? 'bg-white opacity-100' : 'bg-white opacity-50'}`}
+                  className={`w-2 h-2 md:w-3 md:h-3 rounded-full ${
+                    idx === currentIndex ? 'bg-white opacity-100' : 'bg-white opacity-50'
+                  }`}
                   onClick={() => setCurrentIndex(idx)}
                 ></button>
               ))}
             </div>
-            <button className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={() => setCurrentIndex((currentIndex - 1 + swiperImages.length) % swiperImages.length)}>
-             
-              <svg className="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <button
+              className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-2 md:px-4 cursor-pointer"
+              onClick={() => setCurrentIndex((currentIndex - 1 + swiperImages.length) % swiperImages.length)}
+            >
+              <svg
+                className="w-3 h-3 md:w-4 md:h-4 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
                 <path fill="currentColor" d="M15.75 18l-6-6 6-6" />
               </svg>
             </button>
-            <button className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer" onClick={() => setCurrentIndex((currentIndex + 1) % swiperImages.length)}>
-              
-              <svg className="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <button
+              className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-2 md:px-4 cursor-pointer"
+              onClick={() => setCurrentIndex((currentIndex + 1) % swiperImages.length)}
+            >
+              <svg
+                className="w-3 h-3 md:w-4 md:h-4 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
                 <path fill="currentColor" d="M8.25 6l6 6-6 6" />
               </svg>
             </button>
           </div>
         </div>
 
-      </div>
-
-      <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
-        <img src="https://readymadeui.com/google-logo.svg" className="w-28 mx-auto" alt="google-logo" data-aos="fade-up" />
-        <img src="https://readymadeui.com/facebook-logo.svg" className="w-28 mx-auto" alt="facebook-logo" data-aos="fade-down" />
-        <img src="https://readymadeui.com/linkedin-logo.svg" className="w-28 mx-auto" alt="linkedin-logo" data-aos="fade-up" />
-        <img src="https://readymadeui.com/pinterest-logo.svg" className="w-28 mx-auto" alt="pinterest-logo" data-aos="fade-down" />
+        {/* <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+          <img src="https://readymadeui.com/google-logo.svg" className="w-28 mx-auto" alt="google-logo" data-aos="fade-up" />
+          <img src="https://readymadeui.com/facebook-logo.svg" className="w-28 mx-auto" alt="facebook-logo" data-aos="fade-down" />
+          <img src="https://readymadeui.com/linkedin-logo.svg" className="w-28 mx-auto" alt="linkedin-logo" data-aos="fade-up" />
+          <img src="https://readymadeui.com/pinterest-logo.svg" className="w-28 mx-auto" alt="pinterest-logo" data-aos="fade-down" />
+        </div> */}
       </div>
     </div>
   );
