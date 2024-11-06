@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-// import Footer from "./Components/Footer/Footer";
 import Navbar from "./Components/Navbar/Navbar";
 import Admin from "./Pages/Admin";
 import Login from "./Components/Login";
@@ -24,7 +23,6 @@ function App() {
           <Route path="edit/:id" element={<Edit />} />
         </Route>
       </Routes>
-      {/* <Footer /> */}
     </>
   );
 }
