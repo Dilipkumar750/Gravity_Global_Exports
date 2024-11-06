@@ -49,11 +49,11 @@ const Contact = () => {
               <p className="mt-4 font-semibold text-orange-500">Address:</p>
               Gravity Global Exports SDN.BHD<br />
               Co. Reg.No. 202101037574 (1437874-D)<br />
-              No: 7, Jalan PU 7E,<br />
+              No: 87, Jalan PU 83E,<br />
               Taman Tasik Prima,<br />
               47140 Puchong, Selangor.
               <p className="mt-4 font-semibold text-orange-500">Phone:</p>
-              <p>+91 60184 64154</p>
+              <p>60184641754</p>
               <p className="mt-4 font-semibold text-orange-500">Email:</p>
               <p>info@gravityglobalexports.com</p>
             </div>

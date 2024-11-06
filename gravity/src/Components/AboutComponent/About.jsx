@@ -42,7 +42,7 @@ const About = () => {
 
       <div className="flex flex-col items-center mt-5 mb-5 p-4">
        
-        <h1 className='text-3xl font-bold mb-4 text-center text-orange-500'>Our Famous Products</h1>
+        <h1 className='text-3xl font-bold mb-4 text-center text-orange-500'>Our Popular Products</h1>
         
         <div className="flex flex-wrap justify-center gap-6" data-aos="fade-up">
           {products.map((product, index) => (

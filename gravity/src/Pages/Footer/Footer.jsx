@@ -29,8 +29,8 @@ const footerLinks = [
     title: "Contact Us",
     links: [
       { name: "info@gravityglobalexports.com", link: "mailto:info@gravityglobalexports.com" },
-      { name: "+91 60184 64154", link: "tel:+916018464154" },
-      { name: "WhatsApp", icon: <FaWhatsapp />, link: "https://wa.me/6018464154" },    ],
+      { name: "60184641754", link: "tel:60184641754" },
+      { name: "WhatsApp", icon: <FaWhatsapp />, link: "https://wa.me/60184641754" },    ],
   },
   {
     title: "Information",
@@ -48,7 +48,7 @@ const socialIcons = [
   { icon: <SiFacebook />, link: "#", label: "Facebook" },
   { icon: <FaInstagram />, link: "#", label: "Instagram" },
   { icon: <FaYoutube />, link: "#", label: "YouTube" },
-  { icon: <FaWhatsapp />, link: "https://wa.me/6018464154", label: "WhatsApp" },
+  { icon: <FaWhatsapp />, link: "https://wa.me/60184641754", label: "WhatsApp" },
 ];
 
 const ColorFoot = () => (
@@ -58,7 +58,7 @@ const ColorFoot = () => (
         <address className='font-bold'>
           Gravity Global Exports SDN.BHD<br />
           Co. Reg.No. 202101037574 (1437874-D)<br />
-          No: 7, Jalan PU 7E, <br />
+          No: 87, Jalan PU 83E, <br />
           Taman Tasik Prima,<br />
           47140 Puchong, Selangor.
         </address>

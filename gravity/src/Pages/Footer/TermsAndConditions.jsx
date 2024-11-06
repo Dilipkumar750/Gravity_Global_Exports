@@ -101,10 +101,10 @@ const TermsAndConditions = () => {
         <p>
           <strong>Gravity Global Exports Sdn. Bhd.</strong><br />
           Co. Reg.No. 202101037574 (1437874-D)<br />
-          No: 7, Jalan PU 7E,<br />
+          No: 87, Jalan PU 83E,<br />
           Taman Tasik Prima,<br />
           47140 Puchong, Selangor.<br />
-          <strong>Phone:</strong> +91 60184 64154<br />
+          <strong>Phone:</strong> 60184641754<br />
           <strong>Email:</strong> info@gravityglobalexports.com
         </p>
       </div>
