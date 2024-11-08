@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Login = ({ setToken }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");  // Added error state
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -11,10 +11,10 @@ const Login = ({ setToken }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");  // Clear previous errors
+    setError("");  
 
     try {
-      const response = await axios.post("http://localhost:8000/api/users/login", formData);
+      const response = await axios.post("http://localhost:8000/auth/login", formData);
       setToken(response.data.token);
       alert("Login successful!");
     } catch (err) {
@@ -29,7 +29,7 @@ const Login = ({ setToken }) => {
 
   return (
     <div>
-      {error && <div style={{ color: 'red' }}>{error}</div>}  {/* Display error if exists */}
+      {error && <div style={{ color: 'red' }}>{error}</div>}  {/ Display error if exists /}
       <form onSubmit={handleSubmit}>
         <input
           type="email"
